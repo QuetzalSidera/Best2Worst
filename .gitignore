@@ -1,0 +1,11 @@
+Material
+Output
+.venv
+__pycache__
+
+config.toml
+.DS_Store
+.idea
+Usage.md
+node_modules
+.next

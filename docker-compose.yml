@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: best2worst-backend
+    environment:
+      BEST2WORST_DB_PATH: /app/data/best2worst.db
+    volumes:
+      - ./config.toml:/app/config.toml
+      - best2worst_db:/app/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        BACKEND_ORIGIN: http://backend:8001
+    container_name: best2worst-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_BASE: /backend
+      BACKEND_ORIGIN: http://backend:8001
+    restart: unless-stopped
+
+volumes:
+  best2worst_db:
