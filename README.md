@@ -15,6 +15,8 @@
 
 ![界面示例](docs/example.png)
 
+成片示例:
+
 ![成片示例](https://github.com/user-attachments/assets/cb4d4361-b156-4b63-8c21-7d01a3895b1a)
 
 ## 快速开始
